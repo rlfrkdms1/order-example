@@ -75,7 +75,6 @@ public class RestaurantSimulator {
 
     private Customer createCustomer() {
         String name = inputCustomerName();
-        System.out.println(name);
         int cache = inputCustomerCache();
         return new Customer(cache, name);
     }
