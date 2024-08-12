@@ -1,6 +1,7 @@
 package controller;
 
 import model.Customer;
+
 import model.Order;
 import model.Orders;
 import model.Restaurant;
@@ -63,7 +64,7 @@ public class RestaurantSimulator {
     private Restaurant selectRestaurant() {
         do {
             printRestaurants(restaurants.entrySet().stream().
-                    map(entry -> entry.getValue()).toList());
+                    map(entry -> entry.getValue()).collect(Collectors.toList()));
             String selectedRestaurant = inputRestaurant();
             if (restaurants.containsKey(selectedRestaurant)) {
                 return restaurants.get(selectedRestaurant);
@@ -74,6 +75,7 @@ public class RestaurantSimulator {
 
     private Customer createCustomer() {
         String name = inputCustomerName();
+        System.out.println(name);
         int cache = inputCustomerCache();
         return new Customer(cache, name);
     }
